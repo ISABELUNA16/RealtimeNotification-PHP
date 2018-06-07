@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+  <title>Pusher Test</title>
+  <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+  <script type="text/javascript" src="vendor/push.js/bin/push.js"></script>
+  <script>
+
+    // Enable pusher logging -> No incluir esto en produccion  
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('299574b67ce36984466a', {
+      cluster: 'us2',
+      encrypted: true
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+
+      Push.create("Sistema Web Topicos",{
+        body: data.message,
+        icon : "img/doc.png",
+        onClick: function () {
+            window.focus();
+            this.close();
+        }
+      });
+
+      Push.clear();
+    });
+  </script>
+</head>
