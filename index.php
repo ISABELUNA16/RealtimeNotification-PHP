@@ -27,7 +27,7 @@
 </head>
 <body>
   <form method="POST">
-    <input type="twxt" name="msg">
+    <input type="txt" name="msg">
     <input type="submit" >
   </form>
 
